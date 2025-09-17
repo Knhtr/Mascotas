@@ -19,6 +19,58 @@ public class GestionarMascotas {
         misMascotas.add(miMascota);
         guardarArchivo();
     }
+    
+    public void actualizarMascota(Mascota miMascota){
+        for (int i = 0; i < misMascotas.size(); i++){
+            Mascota m = misMascotas.get(i);
+        }
+        
+        boolean encontrado = false;
+        for(int i = 0; i < misMascotas.size(); i++){
+            Mascota m = misMascotas.get(i);
+            if (m.getId() == miMascota.getId()){
+                m.setNombre(miMascota.getNombre());
+                m.setRaza(miMascota.getRaza());
+                m.setEdad(miMascota.getEdad());
+                m.setTipo(miMascota.getTipo());
+                m.setFoto(miMascota.getFoto());
+                encontrado = true;
+                break;
+            }
+        }
+        guardarArchivo();
+    }
+    
+    //método para eliminar una mascota
+      public void eliminarMascota(int id) {
+        for (int i = 0; i < misMascotas.size(); i++) {
+            Mascota miMascota = misMascotas.get(i);
+            if (miMascota.getId() == id) {
+                misMascotas.remove(i);
+                guardarArchivo();
+                break;
+            }
+        }
+    }
+      
+    //método para buscar una mascota
+        public Mascota buscarMascota(int id) {
+        for (Mascota miMascota : misMascotas) {
+            if (miMascota.getId() == id) {
+                return miMascota;
+            }
+        }
+        return null;
+    }
+    
+    //eliminar foto
+    private void eliminarFoto(String foto) {
+        String ruta = "/target/data/libros.txt";
+        File archivo = new File(ruta + File.separator + foto);
+        if (archivo.exists()) {
+            archivo.delete();
+        }
+    }
 
     // Devuelve la lista actual
     public ArrayList<Mascota> getMisMascotas() {
@@ -43,7 +95,8 @@ public class GestionarMascotas {
                         miMascota.getNombre(),
                         miMascota.getRaza(),
                         miMascota.getEdad(),
-                        miMascota.getTipo()
+                        miMascota.getTipo(),
+                        miMascota.getFoto()
                 ));
                 bw.newLine();
             }
@@ -66,13 +119,14 @@ public class GestionarMascotas {
             String linea;
             while ((linea = br.readLine()) != null) {
                 String[] datos = linea.split(",");
-                if (datos.length == 5) {
+                if (datos.length == 6) {
                     Mascota miMascota = new Mascota(
                             Integer.parseInt(datos[0]),
                             datos[1],
                             datos[2],
                             datos[3],
-                            datos[4]
+                            datos[4],
+                            datos[5]
                     );
                     lista.add(miMascota);
                 }

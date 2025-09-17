@@ -1,1 +1,4 @@
-1,Pelusa,Mestizo,5 años,Perro
+1,Pelusa,Frespuder,71 meses,Perro,imagenes/pelusa.jpg
+2,Nieve,Frespuder,60 meses,Perro,imagenes/nieve.jpg
+3,Baely,Pastor Collie,65 meses,Perro,imagenes/baely.jpg
+4,Maximo Meridio,Toro,10 meses,Toro,imagenes/maximomeridio.jpg

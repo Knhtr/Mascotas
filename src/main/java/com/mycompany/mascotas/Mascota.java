@@ -6,16 +6,18 @@ public class Mascota {
     private String raza;
     private String edad;
     private String tipo;
+    private String foto;
 
     public Mascota() {
     }
 
-    public Mascota(int id, String nombre, String raza, String edad, String tipo) {
+    public Mascota(int id, String nombre, String raza, String edad, String tipo, String foto) {
         this.id = id;
         this.nombre = nombre;
         this.raza = raza;
         this.edad = edad;
         this.tipo = tipo;
+        this.foto = foto;
     }
 
     public int getId() {
@@ -57,4 +59,13 @@ public class Mascota {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
+    
 }

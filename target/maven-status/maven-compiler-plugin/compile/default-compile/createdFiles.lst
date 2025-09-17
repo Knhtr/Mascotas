@@ -1,5 +1,8 @@
+Servlet\svActualizar.class
 com\mycompany\mascotas\resources\JakartaEE8Resource.class
+Servlet\svBuscar.class
+com\mycompany\mascotas\GestionarMascotas.class
+Servlet\svEliminar.class
 com\mycompany\mascotas\JakartaRestConfiguration.class
 com\mycompany\mascotas\Mascota.class
-com\mycompany\mascotas\GestionarMascotas.class
 Servlet\svAgregar.class

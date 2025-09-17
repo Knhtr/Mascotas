@@ -160,8 +160,13 @@
             <div class="header">
                 <h1>🐾 Agregar Mascotas</h1>
             </div>
-
             <div class="form-container">
+                <% String error = (String) request.getAttribute("error"); %>
+                <% if (error != null) { %>
+                <div style="background: #ffcdd2; color: #b71c1c; padding: 10px; border-radius: 10px; margin-bottom: 15px; text-align:center;">
+                    <%= error %>
+                </div>
+                <% } %>
                 <form action="svAgregar" method="POST">
                     <div class="form-group">
                         <label for="id">
@@ -196,6 +201,10 @@
                             <span class="label-icon">🐕</span>Tipo
                         </label>
                         <input type="text" id="tipo" name="tipo" placeholder="Perro, Gato">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="file" class="form-control mb-3" name="foto" accept="image/*" required>
                     </div>
 
                     <input type="submit" value="✨ Agregar Mascota" class="submit-btn">
