@@ -96,6 +96,37 @@
                 background: white;
             }
 
+            /* Ocultar el botón original */
+            input[type="file"] {
+                display: none;
+            }
+
+            /* Label con estilo de botón */
+            .custom-file-upload {
+                display: inline-block;
+                width: 100%;
+                padding: 15px;
+                background: #fafafa;
+                color: grey;
+                border-radius: 12px;
+                border: 2px solid #bbdefb;
+                font-size: 1.1rem;
+                font-weight: 600;
+                text-align: center;
+                cursor: pointer;
+                transition: all 0.3s ease;
+                margin-top: 10px;
+            }
+
+            .custom-file-upload:hover {
+                border-color: #90caf9;
+                transform: translateY(-2px);
+            }
+
+            .custom-file-upload:active {
+                transform: translateY(0);
+            }
+
             .submit-btn {
                 width: 100%;
                 padding: 15px;
@@ -162,11 +193,11 @@
             </div>
             <div class="form-container">
                 <% String error = (String) request.getAttribute("error"); %>
-                <% if (error != null) { %>
+                <% if (error != null) {%>
                 <div style="background: #ffcdd2; color: #b71c1c; padding: 10px; border-radius: 10px; margin-bottom: 15px; text-align:center;">
-                    <%= error %>
+                    <%= error%>
                 </div>
-                <% } %>
+                <% }%>
                 <form action="svAgregar" method="POST">
                     <div class="form-group">
                         <label for="id">
@@ -204,9 +235,12 @@
                     </div>
 
                     <div class="form-group">
-                        <input type="file" class="form-control mb-3" name="foto" accept="image/*" required>
+                        <label for="foto">
+                            <span class="label-icon">📷</span>Foto
+                        </label>
+                        <label for="foto" class="custom-file-upload">📁 Seleccionar Foto</label>
+                        <input type="file" id="foto" name="foto" accept="image/*" required>
                     </div>
-
                     <input type="submit" value="✨ Agregar Mascota" class="submit-btn">
                 </form>
             </div>
